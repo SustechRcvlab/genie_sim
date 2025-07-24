@@ -1,45 +1,41 @@
-import os
+# Copyright (c) 2020-2024, NVIDIA CORPORATION. All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto. Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+#
+
 from isaacsim import SimulationApp
 
-# Set environment variables equivalent to the Docker command
-os.environ["ACCEPT_EULA"] = "Y"
-os.environ["DISPLAY"] = ""  # Empty for headless mode
-os.environ["ENABLE_HEADLESS"] = "1"
-os.environ["ISAAC_HEADLESS"] = "1"
-os.environ["NVIDIA_VISIBLE_DEVICES"] = "all"
-os.environ["NVIDIA_DRIVER_CAPABILITIES"] = "all"
-
-# Ensure Omniverse user directory exists (equivalent to --volume ${HOME}/.nvidia-omniverse:/root/.nvidia-omniverse)
-omniverse_user_dir = os.path.expanduser("~/.nvidia-omniverse")
-if not os.path.exists(omniverse_user_dir):
-    os.makedirs(omniverse_user_dir)
-
-# Set working directory (equivalent to --volume $(pwd):/workspace)
-os.chdir(os.getcwd())
-
-# Configure SimulationApp for headless mode
+# This sample enables a livestream server to connect to when running headless
 CONFIG = {
-    "headless": True,  # Equivalent to --headless and --no-window
-    "renderer": "RayTracedLighting",  # Optional: Adjust based on your needs
-    "display": False,  # Ensure no display is used
+    "width": 1280,
+    "height": 720,
+    "window_width": 1920,
+    "window_height": 1080,
+    "headless": True,
+    "hide_ui": False,  # Show the GUI
+    "renderer": "RaytracedLighting",
+    "display_options": 3286,  # Set display options to show default grid
 }
 
-# Initialize SimulationApp
-try:
-    simulation_app = SimulationApp(CONFIG)
-    print("Isaac Sim started successfully in headless mode.")
 
-    # Your simulation code goes here
-    # Example: Load a USD stage or run a simulation
-    # simulation_app.load_usd("/path/to/your_scene.usd")
+# Start the omniverse application
+kit = SimulationApp(launch_config=CONFIG)
 
-    # Keep the app running (replace with your simulation loop if needed)
-    while simulation_app.is_running():
-        simulation_app.update()
+from isaacsim.core.utils.extensions import enable_extension
 
-    # Cleanup
-    simulation_app.close()
-    print("Isaac Sim closed successfully.")
-except Exception as e:
-    print(f"Error starting Isaac Sim: {e}")
-    raise
+# Default Livestream settings
+kit.set_setting("/app/window/drawMouse", True)
+
+# Enable Livestream extension
+enable_extension("omni.kit.livestream.webrtc")
+
+# Run until closed
+while kit._app.is_running() and not kit.is_exiting():
+    # Run in realtime mode, we don't specify the step size
+    kit.update()
+
+kit.close()
