@@ -215,20 +215,38 @@ class AppLauncher:
             "headless", AppLauncher._APPLAUNCHER_CFG_INFO["headless"][1]
         )
         self._render_mode = launcher_args.pop("render_mode")
-
+        self._livestream = launcher_args.pop(
+        "livestream", AppLauncher._APPLAUNCHER_CFG_INFO["livestream"][1]
+    )
     def _create_app(self):
         """Launch SimulationApp"""
-        self._app = SimulationApp(
-            {
+        launcher_args = {
                 "headless": self._headless,
                 "renderer": self._render_mode,
                 "extra_args": ["--/persistent/renderer/rtpt/enabled=true"],
-            }
-        )
+        }
+        if(self._livestream == 2):
+            print("Enabling WebRTC livestreaming")
+            # 添加 WebRTC livestreaming 的参数
+            launcher_args.update({
+            "width": 1280,
+            "height": 720,
+            "window_width": 1920,
+            "window_height": 1080,
+            "hide_ui": False,  # Show the GUI
+            "renderer": "RaytracedLighting",
+            "display_options": 3286,  # Set display options to show default grid
+            })
+            # Default Livestream settings
+
+        # Enable Livestream extension
+
+        self._app = SimulationApp(launcher_args)
+        self._app.set_setting("/app/window/drawMouse", True)
 
     _APPLAUNCHER_CFG_INFO: dict[str, tuple[list[type], Any]] = {
         "headless": ([bool], False),
-        "livestream": ([int], -1),
+        "livestream": ([int], 0),
         "enable_cameras": ([bool], False),
         "device": ([str], "cuda:0"),
         "experience": ([str], ""),
