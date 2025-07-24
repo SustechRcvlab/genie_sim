@@ -1,16 +1,18 @@
 #!/bin/bash
-
-# current folder as WORD_DIR
-CURRENT_DIR=$(pwd)
-
 set -eo pipefail
 
+# default assest path ,only use not declare SIM_ASSETS in env
+DEFAULT_SIM_ASSETS="/data/axgu/assest/GenieSimAssets/"
+SIM_ASSETS="${SIM_ASSETS:-$DEFAULT_SIM_ASSETS}"
+CURRENT_DIR=$(pwd)
+
 echo "using SIM_REPO_ROOT='$CURRENT_DIR'"
-if [ -z "$SIM_ASSETS" ]; then
-    echo "You need to set \$SIM_ASSETS eg. SIM_ASSETS=~/assets"
+echo "using SIM_ASSETS='$SIM_ASSETS'"
+
+# 路径合法性检测（可选）
+if [ ! -d "$SIM_ASSETS" ]; then
+    echo "Error: SIM_ASSETS directory does not exist: $SIM_ASSETS"
     exit 1
-else
-    echo "using SIM_ASSETS='$SIM_ASSETS'"
 fi
 
 docker run -itd --name genie_sim_benchmark \
@@ -19,6 +21,7 @@ docker run -itd --name genie_sim_benchmark \
     --rm \
     --network=host \
     --privileged \
+    -e "SIM_ASSETS=$SIM_ASSETS" \
     -e "ACCEPT_EULA=Y" \
     -e "PRIVACY_CONSENT=Y" \
     -e "PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python" \
@@ -33,4 +36,4 @@ docker run -itd --name genie_sim_benchmark \
     -v $SIM_ASSETS:/root/assets:rw \
     -v $CURRENT_DIR:/root/workspace/main:rw \
     -w /root/workspace/main \
-    registry.agibot.com/genie-sim/open_source:latest
+    genie-sim:v2
