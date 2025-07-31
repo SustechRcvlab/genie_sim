@@ -60,7 +60,9 @@ if args_cli.rospub:
     from isaacsim.core.utils import extensions
 
     extensions.enable_extension("isaacsim.ros2.bridge")
-    extensions.enable_extension("omni.kit.livestream.webrtc")
+    # extensions.enable_extension("omni.kit.livestream.webrtc")
+    # extensions.enable_extension("foxglove.tools.ws_bridge")
+
 
 
 def main():
@@ -97,7 +99,7 @@ def main():
         step += 1
 
         ui_builder.my_world.step(render=True)
-        simulation_app.update()     # 运行 Kit 事件循环，刷新扩展（包含 WebRTC）
+        #simulation_app.update()     # 运行 Kit 事件循环，刷新扩展（包含 WebRTC）
         if rpc_server:
             rpc_server.server_function.on_physics_step()
             if rpc_server.server_function.exit:

@@ -1,8 +1,13 @@
 omni_python server/source/genie.sim.lab/raise_standalone_sim.py \
-    --enable_curobo True \
     --headless \
     --livestream 2
 
-omni_python benchmark/task_benchmark.py \
-    --task_name=curobo_restock_supermarket_items \
-    --env_class=DemoEnv 
+
+cd AgiBot-World && cd RDT &&
+omni_python ./scripts/infer.py --task_name=iros_clear_table_in_the_restaurant
+
+run_client iros_clear_table_in_the_restaurant
+
+
+
+

@@ -1,0 +1,156 @@
+2025-07-29 06:11:03,850,850 INFO     [logger.py:78] using env SIM_REPO_ROOT=/root/workspace/main
+2025-07-29 06:11:03,850,850 INFO     [logger.py:78] using env SIM_ASSETS=/root/assets
+2025-07-29 06:11:03,850,850 WARNING  [logger.py:78] Warning: target_path /root/workspace/main/assets exists, remove and relink
+2025-07-29 06:11:03,851,851 INFO     [logger.py:78] Evaluating agent of type BaselinePolicy on iros_pack_in_the_supermarket
+2025-07-29 06:11:03,977,977 INFO     [logger.py:78] Evaluating agent on the given task: iros_pack_in_the_supermarket
+2025-07-29 06:11:03,977,977 INFO     [logger.py:78] obj_id iros_handbag_000 all_key_objs []
+2025-07-29 06:11:03,977,977 INFO     [logger.py:78] obj_id iros_beverage_bottle_002 all_key_objs []
+2025-07-29 06:11:03,978,978 INFO     [logger.py:78] Saved task json to /root/workspace/main/benchmark/saved_task/iros_pack_in_the_supermarket/iros_pack_in_the_supermarket_0.json
+
+========== 初始化 Solver ==========
+机器人部件: 1
+正在加载配置文件: /root/workspace/main/base_utils/IK-SDK/g1_solver.yaml
+配置文件加载成功
+正在初始化RobotWrapper...
+成功加载完整模型，路径为: /root/workspace/main/base_utils/IK-SDK/G1_NO_GRIPPER.urdf
+成功加载配置文件: /root/workspace/main/base_utils/IK-SDK/g1_solver.yaml
+目标维度设置为: 1
+已加载左臂关节配置
+
+========== 简化模型信息 ==========
+自由度: 7
+
+----- 可动关节列表 -----
+- idx05_left_arm_joint1
+- idx06_left_arm_joint2
+- idx07_left_arm_joint3
+- idx08_left_arm_joint4
+- idx09_left_arm_joint5
+- idx10_left_arm_joint6
+- idx11_left_arm_joint7
+================================
+
+成功加载简化模型
+
+已设置关节限位：
+urdf 位置下限: -3.14 -2.09 -3.14 -1.48 -3.14 -1.74 -3.14
+urdf 位置上限: 3.14 2.09 3.14 1.48 3.14 1.74 3.14
+urdf 速度限制: 3.14 3.14 3.14 3.14 3.14 3.14 3.14
+urdf 力矩限制: 60 60 60 60 30 30 30
+从配置文件中加载关节限位
+配置文件 关节idx05_left_arm_joint1 位置下限: -3.14
+配置文件 关节idx05_left_arm_joint1 位置上限: 3.14
+配置文件 关节idx06_left_arm_joint2 位置下限: -1.48
+配置文件 关节idx06_left_arm_joint2 位置上限: 1.48
+配置文件 关节idx07_left_arm_joint3 位置下限: -3.14
+配置文件 关节idx07_left_arm_joint3 位置上限: 3.14
+配置文件 关节idx08_left_arm_joint4 位置下限: -1.48
+配置文件 关节idx08_left_arm_joint4 位置上限: 1.48
+配置文件 关节idx09_left_arm_joint5 位置下限: -3.14
+配置文件 关节idx09_left_arm_joint5 位置上限: 3.14
+配置文件 关节idx10_left_arm_joint6 位置下限: -1.74
+配置文件 关节idx10_left_arm_joint6 位置上限: 1.74
+配置文件 关节idx11_left_arm_joint7 位置下限: -3.14
+配置文件 关节idx11_left_arm_joint7 位置上限: 3.14
+
+配置文件设置完成：
+RobotWrapper初始化完成
+状态维度: 7
+目标维度: 1
+关节限位方式: urdf
+Variables初始化完成
+状态维度: 7
+目标维度: 1
+初始化完成
+====================================
+
+
+========== 初始化 Solver ==========
+机器人部件: 3
+正在加载配置文件: /root/workspace/main/base_utils/IK-SDK/g1_solver.yaml
+配置文件加载成功
+正在初始化RobotWrapper...
+成功加载完整模型，路径为: /root/workspace/main/base_utils/IK-SDK/G1_NO_GRIPPER.urdf
+成功加载配置文件: /root/workspace/main/base_utils/IK-SDK/g1_solver.yaml
+目标维度设置为: 1
+已加载右臂关节配置
+
+========== 简化模型信息 ==========
+自由度: 7
+
+----- 可动关节列表 -----
+- idx12_right_arm_joint1
+- idx13_right_arm_joint2
+- idx14_right_arm_joint3
+- idx15_right_arm_joint4
+- idx16_right_arm_joint5
+- idx17_right_arm_joint6
+- idx18_right_arm_joint7
+================================
+
+成功加载简化模型
+
+已设置关节限位：
+urdf 位置下限: -3.14 -2.09 -3.14 -1.48 -3.14 -1.74 -3.14
+urdf 位置上限: 3.14 2.09 3.14 1.48 3.14 1.74 3.14
+urdf 速度限制: 3.14 3.14 3.14 3.14 3.14 3.14 3.14
+urdf 力矩限制: 60 60 60 60 30 30 30
+从配置文件中加载关节限位
+配置文件 关节idx12_right_arm_joint1 位置下限: -3.14
+配置文件 关节idx12_right_arm_joint1 位置上限: 3.14
+配置文件 关节idx13_right_arm_joint2 位置下限: -1.48
+配置文件 关节idx13_right_arm_joint2 位置上限: 1.48
+配置文件 关节idx14_right_arm_joint3 位置下限: -3.14
+配置文件 关节idx14_right_arm_joint3 位置上限: 3.14
+配置文件 关节idx15_right_arm_joint4 位置下限: -1.48
+配置文件 关节idx15_right_arm_joint4 位置上限: 1.48
+配置文件 关节idx16_right_arm_joint5 位置下限: -3.14
+配置文件 关节idx16_right_arm_joint5 位置上限: 3.14
+配置文件 关节idx17_right_arm_joint6 位置下限: -1
+配置文件 关节idx17_right_arm_joint6 位置上限: 1
+配置文件 关节idx18_right_arm_joint7 位置下限: -1.5
+配置文件 关节idx18_right_arm_joint7 位置上限: 1.5
+
+配置文件设置完成：
+RobotWrapper初始化完成
+状态维度: 7
+目标维度: 1
+关节限位方式: urdf
+Variables初始化完成
+状态维度: 7
+目标维度: 1
+初始化完成
+====================================
+
+SET INIT POS [0.34906611, 0.34987221, 0, 0.436332313, -0.66857928, 0.67156327, 0.2008844, -0.20287371, 0.27921745, -0.28221884, -1.28203404, 1.28208637, 0.84163094, -0.84068865, 1.51518357, -1.51710308, -0.18715125, 0.18636601, 1, -1, 1, -1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0]
+2025-07-29 06:13:03,051,051 INFO     [logger.py:78] Action [Follow] iros_beverage_bottle_002 evt: 0
+2025-07-29 06:13:03,398,398 INFO     [logger.py:78] Action [StepOut] evt: 0
+2025-07-29 06:29:38,932,932 INFO     [logger.py:78] STEP 1
+2025-07-29 06:29:39,961,961 INFO     [logger.py:78] STEP 2
+2025-07-29 06:29:41,103,103 INFO     [logger.py:78] STEP 3
+2025-07-29 06:29:42,122,122 INFO     [logger.py:78] STEP 4
+2025-07-29 06:29:43,084,084 INFO     [logger.py:78] STEP 5
+2025-07-29 06:29:44,118,118 INFO     [logger.py:78] STEP 6
+2025-07-29 06:29:45,047,047 INFO     [logger.py:78] STEP 7
+2025-07-29 06:29:45,885,885 INFO     [logger.py:78] STEP 8
+2025-07-29 06:29:46,918,918 INFO     [logger.py:78] STEP 9
+2025-07-29 06:29:47,748,748 INFO     [logger.py:78] STEP 10
+2025-07-29 06:29:48,685,685 INFO     [logger.py:78] STEP 11
+2025-07-29 06:29:49,007,007 INFO     [logger.py:78] STEP 12
+2025-07-29 06:29:50,267,267 INFO     [logger.py:78] STEP 13
+2025-07-29 06:29:51,946,946 INFO     [logger.py:78] STEP 14
+2025-07-29 06:29:52,778,778 INFO     [logger.py:78] STEP 15
+2025-07-29 06:29:53,096,096 INFO     [logger.py:78] STEP 16
+2025-07-29 06:29:54,215,215 INFO     [logger.py:78] STEP 17
+2025-07-29 06:29:54,938,938 INFO     [logger.py:78] STEP 18
+2025-07-29 06:29:56,286,286 INFO     [logger.py:78] STEP 19
+2025-07-29 06:29:56,708,708 INFO     [logger.py:78] STEP 20
+2025-07-29 06:29:57,592,592 INFO     [logger.py:78] STEP 21
+2025-07-29 06:29:58,741,741 INFO     [logger.py:78] STEP 22
+2025-07-29 06:29:59,163,163 INFO     [logger.py:78] STEP 23
+2025-07-29 06:30:00,117,117 INFO     [logger.py:78] STEP 24
+2025-07-29 06:30:01,056,056 INFO     [logger.py:78] STEP 25
+2025-07-29 06:30:01,899,899 INFO     [logger.py:78] STEP 26
+2025-07-29 06:30:02,521,521 INFO     [logger.py:78] STEP 27
+2025-07-29 06:30:03,360,360 INFO     [logger.py:78] STEP 28
+2025-07-29 06:30:04,521,521 INFO     [logger.py:78] STEP 29

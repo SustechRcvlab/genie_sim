@@ -38,6 +38,7 @@ RUN add-apt-repository universe && \
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install -q -y --no-install-recommends \
     ros-dev-tools \
+    
     ros-humble-ros-base \
     ros-humble-image-transport \
     ros-humble-image-transport-plugins \
